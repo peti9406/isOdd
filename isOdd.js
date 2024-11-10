@@ -64,3 +64,5 @@ if (command2 == "ADD") {
 } else alert("Invalid command! Try ADD, SUBSTRACT, DIVIDE, MULTIPLY!");
 
 alert(`Number ${result} is ${result % 2 != 0 ? "odd" : "even"}`);
+
+console.log("hehe");
