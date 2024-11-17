@@ -1,6 +1,8 @@
 "use strict";
 
-function adding(a, b) {
+let result = "";
+
+function add(a, b) {
   return a + b;
 }
 
@@ -16,6 +18,22 @@ function multiply(a, b) {
   return a * b;
 }
 
+function operate(command, a, b) {
+  if (command == "ADD") {
+    alert(`${a} + ${b} = ${add(a, b)}`);
+    result = add(a, b);
+  } else if (command == "SUBSTRACT") {
+    alert(`${a} - ${b} = ${substract(a, b)}`);
+    result = substract(a, b);
+  } else if (command == "DIVIDE") {
+    alert(`${a} / ${b} = ${divide(a, b)}`);
+    result = divide(a, b);
+  } else if (command == "MULTIPLY") {
+    alert(`${a} * ${b} = ${multiply(a, b)}`);
+    result = multiply(a, b);
+  } else alert("Invalid command! Try ADD, SUBSTRACT, DIVIDE, MULTIPLY!");
+}
+
 alert(
   "Please give me three numbers, after each number specify what do you want to do with them!"
 );
@@ -26,43 +44,13 @@ const command1 = String(
 );
 const second = Number(prompt("Second number is?"));
 
-let firstValue = "";
-
-if (command1 == "ADD") {
-  alert(`${first} + ${second} = ${adding(first, second)}`);
-  firstValue = adding(first, second);
-} else if (command1 == "SUBSTRACT") {
-  alert(`${first} - ${second} = ${substract(first, second)}`);
-  firstValue = substract(first, second);
-} else if (command1 == "DIVIDE") {
-  alert(`${first} / ${second} = ${divide(first, second)}`);
-  firstValue = divide(first, second);
-} else if (command1 == "MULTIPLY") {
-  alert(`${first} * ${second} = ${multiply(first, second)}`);
-  firstValue = multiply(first, second);
-} else alert("Invalid command! Try ADD, SUBSTRACT, DIVIDE, MULTIPLY!");
+operate(command1, first, second);
 
 const command2 = String(
   prompt("Second operation is? (ADD, SUBSTRACT, DIVIDE, MULTIPLY)")
 );
 const third = Number(prompt("Third number is?"));
 
-let result = "";
-
-if (command2 == "ADD") {
-  alert(`${firstValue} + ${third}= ${firstValue + third}`);
-  result = firstValue + third;
-} else if (command2 == "SUBSTRACT") {
-  alert(`${firstValue} - ${third}= ${firstValue - third}`);
-  result = firstValue - third;
-} else if (command2 == "DIVIDE") {
-  alert(`${firstValue} / ${third}= ${firstValue / third}`);
-  result = firstValue / third;
-} else if (command2 == "MULTIPLY") {
-  alert(`${firstValue} * ${third}= ${firstValue * third}`);
-  result = firstValue * third;
-} else alert("Invalid command! Try ADD, SUBSTRACT, DIVIDE, MULTIPLY!");
+operate(command2, result, third);
 
 alert(`Number ${result} is ${result % 2 != 0 ? "odd" : "even"}`);
-
-console.log("hehe");
